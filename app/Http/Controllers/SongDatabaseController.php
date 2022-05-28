@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class SongDatabaseController extends Controller
 {
@@ -18,7 +19,7 @@ class SongDatabaseController extends Controller
         $success = SongDatabase::import($file, $user);
 
         if ($success) {
-            return redirect()->route('user', ['user_slug' => $user->slug]);
+            return redirect()->route('user', ['user_slug' => $user->name]);
         }
 
         session()->flash('message', 'The file could not be imported.');
@@ -30,13 +31,21 @@ class SongDatabaseController extends Controller
     {
         $user = User::where('name', $user_slug)->firstOrFail();
 
-        Config::set('database.connections.bms', [
-            'driver' => 'sqlite',
-            'database' => Storage::disk('bms')->path($user->name . '/songdata.db'),
-        ]);
+        $database_file = Storage::disk('bms')->path($user->name . '/songdata.db');
 
-        $songs = DB::connection('bms')->table('song')->get();
+        $songs = null;
 
-        return view('user', compact('user', 'songs'));
+        if (file_exists($database_file)) {
+            Config::set('database.connections.bms', [
+                'driver' => 'sqlite',
+                'database' => $database_file,
+            ]);
+
+            $songs = DB::connection('bms')->table('song')->get();
+        }
+
+        $title = Str::upper($user->name) . ' BMS DATABASE';
+
+        return view('user', compact('user', 'songs', 'title'));
     }
 }

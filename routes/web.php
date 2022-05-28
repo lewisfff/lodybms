@@ -31,7 +31,7 @@ Route::get('/auth/callback', function () {
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['title' => 'BMS Song Database']);
 })->name('index');
 
 Route::post('/upload', [App\Http\Controllers\SongDatabaseController::class, 'upload'])->name('upload');

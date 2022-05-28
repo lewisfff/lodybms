@@ -40,6 +40,64 @@ $input-shadow: none;
 @import "bulma/sass/layout/section.sass";
 @import 'datatables.net-bm/css/dataTables.bulma.css';
 
-.container {
-    margin-top: 3rem
+h1.title {
+    margin-top: 2rem;
+    text-align: center
+}
+
+.user-links {
+    margin: 0 -2vmin
+}
+
+.user-link {
+    display: inline-block;
+    text-decoration: none;
+
+    .user-image {
+        width: 25vmin;
+        height: 25vmin;
+        margin: 2vmin;
+        object-fit: cover;
+        text-align: center;
+        line-height: 25vmin;
+        font-size: 4vmin;
+        color: white;
+        text-shadow: 0 0 1vmin black;
+        box-shadow: 0 0 1vmin rgba(0, 0, 0, 0.5);
+        background-size: cover;
+    }
+
+    &:hover .user-image {
+        opacity: .8;
+        box-shadow: 0 0 1vmin rgba(0, 0, 0, 1);
+    }
+}
+
+.pagination {
+    text-align: right;
+    li {
+        display: inline-block;
+        padding: .5rem;
+    }
+}
+
+.column.is-half {
+    width: 50%;
+    display: inline-block;
+}
+
+.dtr-control {
+    outline: 2px solid $primary;
+    outline-offset: -1px;
+    background: $white;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.dtr-details {
+    outline: 2px solid $primary;
+    outline-offset: -1px;
+    background: $white;
+    border-radius: 5px;
+    padding: 4px;
 }

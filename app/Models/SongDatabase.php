@@ -14,8 +14,6 @@ class SongDatabase extends Model
 
     public static function import($file, $user): bool
     {
-        $fileName = $file->getClientOriginalName();
-
         Config::set('database.connections.bms', array(
             'driver' => 'sqlite',
             'database' => $file->getRealPath(),
@@ -24,7 +22,7 @@ class SongDatabase extends Model
         $songs = DB::connection('bms')->table('song');
 
         if ($songs->count() > 0) {
-            return Storage::disk('bms')->putFileAs($user->slug, $file, 'songdata.db');
+            return Storage::disk('bms')->putFileAs($user->name, $file, 'songdata.db');
         }
 
         return false;
