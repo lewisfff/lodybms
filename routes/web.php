@@ -33,3 +33,7 @@ Route::get('/auth/callback', function () {
 Route::get('/', function () {
     return view('welcome');
 })->name('index');
+
+Route::post('/upload', [App\Http\Controllers\SongDatabaseController::class, 'upload'])->name('upload');
+
+Route::get('/{user_slug}', [App\Http\Controllers\SongDatabaseController::class, 'user'])->name('user');
