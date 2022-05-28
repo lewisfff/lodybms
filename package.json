@@ -13,6 +13,13 @@
         "axios": "^0.25",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
-        "postcss": "^8.1.14"
+        "resolve-url-loader": "^5.0.0",
+        "sass": "^1.52.1",
+        "sass-loader": "^12.1.0",
+        "bulma": "^0.9.4",
+        "datatables.net-bm": "^1.12.1",
+        "datatables.net-buttons-bm": "^2.2.3",
+        "datatables.net-responsive-bm": "^2.3.0",
+        "jquery": "^3.6.0"
     }
 }
