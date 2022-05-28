@@ -25,7 +25,7 @@
                     <div>
                         No songs found.
                     </div>
-                    @if($user->id === auth()->user()->id)
+                    @if($user && $user->id === auth()->user()->id)
                         <div class="field">
                             <form action="/upload" method="POST" enctype="multipart/form-data">
                                 @csrf
