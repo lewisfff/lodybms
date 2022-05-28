@@ -9,36 +9,35 @@
     <script src="/js/app.js"></script>
 </head>
 <body>
-<h1 class="title">
-    Bulma
-</h1>
 
-<p class="subtitle">
-    Modern CSS framework based on <a
-        href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox">Flexbox</a>
-</p>
+@include('nav')
 
-@yield('content')
-
-<div class="field">
-    <div class="control">
-        <input class="input" type="text" placeholder="Input">
-    </div>
+<div class="container">
+    <h1 class="title">
+        {{ $title ?? 'Untitled' }}
+    </h1>
+    @yield('content')
 </div>
 
-<div class="field">
-    <p class="control">
-          <span class="select">
-            <select>
-              <option>Select dropdown</option>
-            </select>
-          </span>
-    </p>
-</div>
+{{--<div class="field">--}}
+{{--    <div class="control">--}}
+{{--        <input class="input" type="text" placeholder="Input">--}}
+{{--    </div>--}}
+{{--</div>--}}
 
-<div class="buttons">
-    <a class="button is-primary">Primary</a>
-    <a class="button is-link">Link</a>
-</div>
+{{--<div class="field">--}}
+{{--    <p class="control">--}}
+{{--          <span class="select">--}}
+{{--            <select>--}}
+{{--              <option>Select dropdown</option>--}}
+{{--            </select>--}}
+{{--          </span>--}}
+{{--    </p>--}}
+{{--</div>--}}
+
+{{--<div class="buttons">--}}
+{{--    <a class="button is-primary">Primary</a>--}}
+{{--    <a class="button is-link">Link</a>--}}
+{{--</div>--}}
 </body>
 </html>

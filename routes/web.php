@@ -8,6 +8,11 @@ Route::get('/auth/redirect', function () {
     return Socialite::driver('twitch')->redirect();
 })->name('login');
 
+Route::get('/logout', function () {
+    auth()->logout();
+    return redirect('/');
+})->name('logout');
+
 Route::get('/auth/callback', function () {
     $twitch_user = Socialite::driver('twitch')->user();
 
