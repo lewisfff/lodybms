@@ -8,7 +8,7 @@ Route::get('/auth/redirect', function () {
     return Socialite::driver('twitch')->redirect();
 })->name('login');
 
-Route::get('/logout', function () {
+Route::post('/logout', function () {
     auth()->logout();
     return redirect('/');
 })->name('logout');
