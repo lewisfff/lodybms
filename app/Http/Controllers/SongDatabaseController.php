@@ -25,7 +25,7 @@ class SongDatabaseController extends Controller
 
         session()->flash('message', 'The file could not be imported.');
 
-        return redirect()->route('dashboard');
+        return redirect()->back();
     }
 
     public function user($user_slug): \Illuminate\View\View

@@ -21,9 +21,14 @@ class SongDatabase extends Model
 
         $songs = DB::connection('bms')->table('song');
 
-        if ($songs->count() > 0) {
-            return Storage::disk('bms')->putFileAs($user->name, $file, 'songdata.db');
+        try {
+            if ($songs->count() > 0) {
+                return Storage::disk('bms')->putFileAs($user->name, $file, 'songdata.db');
+            }
+        } catch (\Exception $e) {
+            return false;
         }
+
 
         return false;
     }
