@@ -15,6 +15,7 @@
     <h1 class="title">
         {{ $title ?? 'Untitled' }}
     </h1>
+    <h3 class="subtitle is-6">{{ $subtitle ?? '' }}</h3>
 
     @if(session()->has('message'))
         <x-notification :message="session()->get('message')" />

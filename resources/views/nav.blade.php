@@ -21,7 +21,7 @@
                     <button class="button" type="submit">Logout</button>
                 </form>
             @else
-                <a href="{{ route('login') }}" class="button">Log in</a>
+                <a href="{{ route('login') }}" class="button">Log in (Twitch)</a>
 
                 @if (Route::has('register'))
                     <a href="{{ route('register') }}" class="button">Register</a>

@@ -31,7 +31,7 @@ Route::get('/auth/callback', function () {
 });
 
 Route::get('/', function () {
-    return view('welcome', ['title' => 'BMS Song Database']);
+    return view('welcome', ['title' => 'Beatoraja Song Database Directory', 'subtitle' => 'Useful for finding songs for stream requests']);
 })->name('index');
 
 Route::post('/upload', [App\Http\Controllers\SongDatabaseController::class, 'upload'])->name('upload');

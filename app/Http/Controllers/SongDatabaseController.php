@@ -45,7 +45,7 @@ class SongDatabaseController extends Controller
             $songs = DB::connection('bms')->table('song')->get();
         }
 
-        $title = Str::upper($user->name) . ' BMS DATABASE';
+        $title = 'BMS Directory - ' . $user->name;
 
         return view('user', compact('user', 'songs', 'title'));
     }

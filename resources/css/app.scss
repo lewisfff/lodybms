@@ -27,10 +27,14 @@ $input-shadow: none;
 @import "bulma/bulma.sass";
 @import 'datatables.net-bm/css/dataTables.bulma.css';
 
-h1.title {
+h1.title, {
     margin-top: 2rem;
     text-align: center
 }
+
+ .subtitle {
+     text-align: center
+ }
 
 .user-links {
     margin: 0 -2vmin
