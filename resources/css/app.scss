@@ -1,11 +1,9 @@
 @charset "utf-8";
 
-// Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
 $body-size: 24px;
 
-// Set your brand colors
 $purple: #8A4D76;
 $pink: #FA7C91;
 $red: #f13c3c;
@@ -13,7 +11,6 @@ $green: #29b228;
 $beige-light: #D0D1CD;
 $beige-lighter: #EFF0EB;
 
-// Update Bulma's global variables
 $family-sans-serif: "Nunito", sans-serif;
 $grey-dark: $red;
 $grey-light: $beige-light;
@@ -22,22 +19,12 @@ $link: $green;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
 
-// Update some of Bulma's component variables
 $body-background-color: $beige-lighter;
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
 
-// Import only what you need from Bulma
-@import "bulma/sass/utilities/_all.sass";
-@import "bulma/sass/base/_all.sass";
-@import "bulma/sass/elements/button.sass";
-@import "bulma/sass/elements/container.sass";
-@import "bulma/sass/elements/title.sass";
-@import "bulma/sass/form/_all.sass";
-@import "bulma/sass/components/navbar.sass";
-@import "bulma/sass/layout/hero.sass";
-@import "bulma/sass/layout/section.sass";
+@import "bulma/bulma.sass";
 @import 'datatables.net-bm/css/dataTables.bulma.css';
 
 h1.title {
@@ -73,25 +60,17 @@ h1.title {
     }
 }
 
-.pagination {
-    text-align: right;
-    li {
-        display: inline-block;
-        padding: .5rem;
-    }
-}
-
-.column.is-half {
-    width: 50%;
-    display: inline-block;
-}
-
 .dtr-control {
     outline: 2px solid $primary;
     outline-offset: -1px;
     background: $white;
     border-radius: 5px;
     padding: 4px;
+    cursor: pointer;
+    &:hover {
+        background: $primary;
+        color: $white;
+    }
 }
 
 .dtr-details {
@@ -100,4 +79,15 @@ h1.title {
     background: $white;
     border-radius: 5px;
     padding: 4px;
+}
+
+table {
+    font-size: 16px;
+}
+.pagination {
+    font-size: 16px;
+}
+
+.notification {
+    text-align: center
 }

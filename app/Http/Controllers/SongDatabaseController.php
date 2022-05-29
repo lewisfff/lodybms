@@ -19,6 +19,7 @@ class SongDatabaseController extends Controller
         $success = SongDatabase::import($file, $user);
 
         if ($success) {
+            session()->flash('message', 'Song database uploaded successfully.');
             return redirect()->route('user', ['user_slug' => $user->name]);
         }
 

@@ -15,6 +15,11 @@
     <h1 class="title">
         {{ $title ?? 'Untitled' }}
     </h1>
+
+    @if(session()->has('message'))
+        <x-notification :message="session()->get('message')" />
+    @endif
+
     @yield('content')
 
 </body>
