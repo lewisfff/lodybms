@@ -37,3 +37,6 @@ Route::get('/', function () {
 Route::post('/upload', [App\Http\Controllers\SongDatabaseController::class, 'upload'])->name('upload');
 
 Route::get('/{user_slug}', [App\Http\Controllers\SongDatabaseController::class, 'user'])->name('user');
+
+Route::get('/{user_slug}/data', [App\Http\Controllers\SongDatabaseController::class, 'table'])->name('user.data');
+

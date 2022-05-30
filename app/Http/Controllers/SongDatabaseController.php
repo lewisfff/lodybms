@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\SongDatabase;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Yajra\DataTables\Facades\DataTables;
 
 class SongDatabaseController extends Controller
 {
@@ -32,6 +34,14 @@ class SongDatabaseController extends Controller
     {
         $user = User::where('name', $user_slug)->firstOrFail();
 
+        $title = 'BMS Directory - ' . $user->name;
+
+        return view('user', compact('user', 'title'));
+    }
+
+    public function table(Request $request, $user_slug)
+    {
+        $user = User::where('name', $user_slug)->firstOrFail();
         $database_file = Storage::disk('bms')->path($user->name . '/songdata.db');
 
         $songs = null;
@@ -42,11 +52,11 @@ class SongDatabaseController extends Controller
                 'database' => $database_file,
             ]);
 
-            $songs = DB::connection('bms')->table('song')->get();
+            $songs = DB::connection('bms')->table('song');
+
+            return Datatables::of($songs)->make();
         }
 
-        $title = 'BMS Directory - ' . $user->name;
-
-        return view('user', compact('user', 'songs', 'title'));
+        return false;
     }
 }
